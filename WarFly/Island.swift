@@ -8,10 +8,10 @@
 import SpriteKit
 import GameplayKit
 
-class Island: SKSpriteNode {
+final class Island: SKSpriteNode, GameBackgroundSpriteable {
     
-    static func createIsland(at point: CGPoint) -> Island {
-        let islandImageName = configureIslandName()
+    static func createElement(at point: CGPoint) -> Island {
+        let islandImageName = configureName()
         let island = Island(imageNamed: islandImageName)
         island.setScale(randomScaleFactor)
         island.position = point
@@ -22,7 +22,7 @@ class Island: SKSpriteNode {
     }
     
     // устанавливаем рэндомное имя изображения острова
-    static func configureIslandName() -> String {
+    fileprivate static func configureName() -> String {
         let distribution = GKRandomDistribution(lowestValue: 1,
                                                 highestValue: 4)
         let randomNumber = distribution.nextInt()
@@ -31,7 +31,7 @@ class Island: SKSpriteNode {
     }
     
     // устанавливаем рэндомное число для размера острова
-    static var randomScaleFactor: CGFloat {
+    fileprivate static var randomScaleFactor: CGFloat {
         let distribution = GKRandomDistribution(lowestValue: 1,
                                                 highestValue: 10)
         let randomNumber = CGFloat(distribution.nextInt()) / 10
@@ -40,7 +40,7 @@ class Island: SKSpriteNode {
     }
     
     // устанавливаем рэндомный угол на который будет повернут остров
-    static func rotateForRandomAngle() -> SKAction {
+    fileprivate static func rotateForRandomAngle() -> SKAction {
         let distribution = GKRandomDistribution(lowestValue: 0,
                                                 highestValue: 360)
         let randomNumber = CGFloat(distribution.nextInt())

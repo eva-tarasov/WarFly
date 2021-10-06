@@ -15,6 +15,8 @@
 		318BA1D4270D89BC0077A9FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 318BA1D2270D89BC0077A9FF /* LaunchScreen.storyboard */; };
 		318BA1DB270D8CDB0077A9FF /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1DA270D8CDB0077A9FF /* Background.swift */; };
 		318BA1DD270D936A0077A9FF /* Island.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1DC270D936A0077A9FF /* Island.swift */; };
+		318BA1DF270DA1C10077A9FF /* Cloud.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1DE270DA1C10077A9FF /* Cloud.swift */; };
+		318BA1E1270DA3B90077A9FF /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1E0270DA3B90077A9FF /* Protocols.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		318BA1D3270D89BC0077A9FF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		318BA1DA270D8CDB0077A9FF /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		318BA1DC270D936A0077A9FF /* Island.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Island.swift; sourceTree = "<group>"; };
+		318BA1DE270DA1C10077A9FF /* Cloud.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cloud.swift; sourceTree = "<group>"; };
+		318BA1E0270DA3B90077A9FF /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +66,8 @@
 				318BA1C3270D89B30077A9FF /* AppDelegate.swift */,
 				318BA1C9270D89B30077A9FF /* GameScene.swift */,
 				318BA1DC270D936A0077A9FF /* Island.swift */,
+				318BA1DE270DA1C10077A9FF /* Cloud.swift */,
+				318BA1E0270DA3B90077A9FF /* Protocols.swift */,
 				318BA1DA270D8CDB0077A9FF /* Background.swift */,
 				318BA1CB270D89B30077A9FF /* GameViewController.swift */,
 				318BA1CD270D89B30077A9FF /* Main.storyboard */,
@@ -143,6 +149,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				318BA1CA270D89B30077A9FF /* GameScene.swift in Sources */,
+				318BA1DF270DA1C10077A9FF /* Cloud.swift in Sources */,
+				318BA1E1270DA3B90077A9FF /* Protocols.swift in Sources */,
 				318BA1CC270D89B30077A9FF /* GameViewController.swift in Sources */,
 				318BA1C4270D89B30077A9FF /* AppDelegate.swift in Sources */,
 				318BA1DD270D936A0077A9FF /* Island.swift in Sources */,
