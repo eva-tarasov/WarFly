@@ -12,7 +12,7 @@ class GameScene: SKScene {
   // Генерируем Облака
   fileprivate func spawnCloud() {
     let spawnCloudWait = SKAction.wait(forDuration: 1)
-    let spawnCloudAction = SKAction.run {
+    let spawnCloudAction = SKAction.run { [unowned self] in
       let cloud = Cloud.createElement(at: nil)
       self.addChild(cloud)
     }
@@ -25,7 +25,7 @@ class GameScene: SKScene {
   // Генерируем острова
   fileprivate func spawnIsland() {
     let spawnIslandWait = SKAction.wait(forDuration: 2)
-    let spawnIslandAction = SKAction.run {
+    let spawnIslandAction = SKAction.run { [unowned self] in
       let island = Island.createElement(at: nil)
       self.addChild(island)
     }
@@ -59,9 +59,11 @@ class GameScene: SKScene {
     configureStartScene()
     spawnIsland()
     spawnCloud()
+    playerPlane.planeAnimationFillArray()
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    
     if let touch = touches.first {
       
       let touchLocation = touch.location(in: self)
@@ -71,6 +73,8 @@ class GameScene: SKScene {
       
       let moveAction = SKAction.move(to: CGPoint(x: touchLocation.x, y: 100), duration: timeToDistance)
       playerPlane.run(moveAction)
+      
+      playerPlane.movementDirectionCheck(at: touchLocation.x)
     }
   }
   
