@@ -9,10 +9,14 @@ import SpriteKit
 
 class PlayerPlane: SKSpriteNode {
     
-    static func createPlane(at point: CGPoint) -> SKSpriteNode {
+    var leftTextureArrayAnimation = [SKTexture]()
+    var rightTextureArrayAnimation = [SKTexture]()
+    var forwardTextureArrayAnimation = [SKTexture]()
+    
+    static func createPlane(at point: CGPoint) -> PlayerPlane {
         
         let playerPlaneTexture = SKTexture(imageNamed: "airplane_3ver2_13")
-        let playerPlane = SKSpriteNode(texture: playerPlaneTexture)
+        let playerPlane = PlayerPlane(texture: playerPlaneTexture)
         playerPlane.setScale(0.5)
         playerPlane.position = point
         playerPlane.zPosition = 20

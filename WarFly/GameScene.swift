@@ -10,7 +10,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var playerPlane: SKSpriteNode!
+    var playerPlane: PlayerPlane!
     
     fileprivate func distanceCalculation(a: CGPoint, b: CGPoint) -> CGFloat {
         return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y))
@@ -82,7 +82,6 @@ class GameScene: SKScene {
     }
     
     override func didSimulatePhysics() {
-        super.didSimulatePhysics()
         
         // Убираем ноды когда они исчезают с экрана по оси Y
         enumerateChildNodes(withName: "backgroundSprite") { node, stop in
