@@ -58,7 +58,7 @@ class GameScene: SKScene {
   override func didMove(to view: SKView) {
     
     configureStartScene()
-    playerPlane.planeAnimationFillArray()
+    playerPlane.preloadTextureArrays()
     spawnIsland()
     spawnCloud()
     
