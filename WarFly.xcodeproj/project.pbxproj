@@ -19,6 +19,7 @@
 		318BA1E1270DA3B90077A9FF /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1E0270DA3B90077A9FF /* Protocols.swift */; };
 		318BA1E3270DAE830077A9FF /* PlayerPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1E2270DAE830077A9FF /* PlayerPlane.swift */; };
 		318BA1E5270DAFCB0077A9FF /* PlayerPlane.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 318BA1E4270DAFCB0077A9FF /* PlayerPlane.atlas */; };
+		31A48D69270F42CB00536EDC /* GreenPowerUp.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		318BA1E0270DA3B90077A9FF /* Protocols.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; tabWidth = 2; usesTabs = 0; wrapsLines = 1; };
 		318BA1E2270DAE830077A9FF /* PlayerPlane.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PlayerPlane.swift; sourceTree = "<group>"; tabWidth = 2; };
 		318BA1E4270DAFCB0077A9FF /* PlayerPlane.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PlayerPlane.atlas; sourceTree = "<group>"; };
+		31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GreenPowerUp.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 		318BA1C2270D89B30077A9FF /* WarFly */ = {
 			isa = PBXGroup;
 			children = (
+				31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */,
 				318BA1E4270DAFCB0077A9FF /* PlayerPlane.atlas */,
 				318BA1C3270D89B30077A9FF /* AppDelegate.swift */,
 				318BA1C9270D89B30077A9FF /* GameScene.swift */,
@@ -142,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				318BA1CF270D89B30077A9FF /* Main.storyboard in Resources */,
+				31A48D69270F42CB00536EDC /* GreenPowerUp.atlas in Resources */,
 				318BA1E5270DAFCB0077A9FF /* PlayerPlane.atlas in Resources */,
 				318BA1D1270D89BC0077A9FF /* Assets.xcassets in Resources */,
 				318BA1D4270D89BC0077A9FF /* LaunchScreen.storyboard in Resources */,
