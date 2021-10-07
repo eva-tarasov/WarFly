@@ -10,13 +10,15 @@ import GameplayKit
 
 final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
     
-    static func createElement(at point: CGPoint) -> Cloud {
+    static func createElement(at point: CGPoint?) -> Cloud {
         let cloudImageName = configureName()
         let cloud = Cloud(imageNamed: cloudImageName)
         cloud.setScale(randomScaleFactor)
-        cloud.position = point
+        cloud.position = point ?? randomPoint()
+        cloud.name = "backgroundSprite"
+        cloud.anchorPoint = CGPoint(x: 0.5, y: 1) // смещение центра, что бы нод исчезал когда целиком пропадет с экрана
         cloud.zPosition = 10
-        cloud.run(move(from: point))
+        cloud.run(move(from: cloud.position))
         
         return cloud
     }
@@ -32,8 +34,8 @@ final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
     
     // устанавливаем рэндомное число для размера облака
     fileprivate static var randomScaleFactor: CGFloat {
-        let distribution = GKRandomDistribution(lowestValue: 20,
-                                                highestValue: 30)
+        let distribution = GKRandomDistribution(lowestValue: 15,
+                                                highestValue: 20)
         let randomNumber = CGFloat(distribution.nextInt()) / 10
         
         return randomNumber
@@ -43,7 +45,7 @@ final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
     fileprivate static func move(from point: CGPoint) -> SKAction {
         let movePoint = CGPoint(x: point.x, y: -200)
         let moveDistance = point.x + 200
-        let movementSpeed: CGFloat = 18.0
+        let movementSpeed: CGFloat = 40.0
         let duration = moveDistance / movementSpeed
         
         return SKAction.move(to: movePoint, duration: TimeInterval(duration))

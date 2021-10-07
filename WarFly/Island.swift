@@ -10,18 +10,20 @@ import GameplayKit
 
 final class Island: SKSpriteNode, GameBackgroundSpriteable {
     
-    static func createElement(at point: CGPoint) -> Island {
+    static func createElement(at point: CGPoint?) -> Island {
         let islandImageName = configureName()
         let island = Island(imageNamed: islandImageName)
         island.setScale(randomScaleFactor)
-        island.position = point
+        island.position = point ?? randomPoint()
+        island.name = "backgroundSprite"
+        island.anchorPoint = CGPoint(x: 0.5, y: 1) // смещение центра, что бы нод исчезал когда целиком пропадет с экрана
         island.zPosition = 2
         island.run(rotateForRandomAngle())
-        island.run(move(from: point))
+        island.run(move(from: island.position))
         
         return island
     }
-    
+        
     // устанавливаем рэндомное имя изображения острова
     fileprivate static func configureName() -> String {
         let distribution = GKRandomDistribution(lowestValue: 1,
@@ -55,10 +57,10 @@ final class Island: SKSpriteNode, GameBackgroundSpriteable {
     // Настройки движения объекта
     fileprivate static func move(from point: CGPoint) -> SKAction {
         let movePoint = CGPoint(x: point.x, y: -200)
-        let moveDistance = point.x + 200
-        let movementSpeed: CGFloat = 10.0
-        let duration = moveDistance / movementSpeed
+//        let moveDistance = point.x + 200
+//        let movementSpeed: CGFloat = 30.0
+//        let duration = moveDistance / movementSpeed
         
-        return SKAction.move(to: movePoint, duration: TimeInterval(duration))
+        return SKAction.move(to: movePoint, duration: 10)
     }
 }
