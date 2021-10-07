@@ -4,6 +4,7 @@ import GameplayKit
 class GameScene: SKScene {
   
   var playerPlane: PlayerPlane!
+  var powerUp: PowerUp!
   
   fileprivate func distanceCalculation(a: CGPoint, b: CGPoint) -> CGFloat {
     return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y))
@@ -57,9 +58,15 @@ class GameScene: SKScene {
   override func didMove(to view: SKView) {
     
     configureStartScene()
+    playerPlane.planeAnimationFillArray()
     spawnIsland()
     spawnCloud()
-    playerPlane.planeAnimationFillArray()
+    
+    powerUp = PowerUp()
+    powerUp.performRotation()
+    powerUp.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+    self.addChild(powerUp)
+    
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

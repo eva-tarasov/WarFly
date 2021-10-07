@@ -63,7 +63,6 @@ class PlayerPlane: SKSpriteNode {
         let texture = SKTexture(imageNamed: "airplane_3ver2_13")
         array.append(texture)
         
-        
         SKTexture.preload(array) {
           print("preload is done")
         }

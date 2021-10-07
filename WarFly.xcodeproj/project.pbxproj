@@ -20,6 +20,7 @@
 		318BA1E3270DAE830077A9FF /* PlayerPlane.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1E2270DAE830077A9FF /* PlayerPlane.swift */; };
 		318BA1E5270DAFCB0077A9FF /* PlayerPlane.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 318BA1E4270DAFCB0077A9FF /* PlayerPlane.atlas */; };
 		31A48D69270F42CB00536EDC /* GreenPowerUp.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */; };
+		31A48D6B270F43A700536EDC /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A48D6A270F43A700536EDC /* PowerUp.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		318BA1E2270DAE830077A9FF /* PlayerPlane.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = PlayerPlane.swift; sourceTree = "<group>"; tabWidth = 2; };
 		318BA1E4270DAFCB0077A9FF /* PlayerPlane.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = PlayerPlane.atlas; sourceTree = "<group>"; };
 		31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GreenPowerUp.atlas; sourceTree = "<group>"; };
+		31A48D6A270F43A700536EDC /* PowerUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 				318BA1DC270D936A0077A9FF /* Island.swift */,
 				318BA1DE270DA1C10077A9FF /* Cloud.swift */,
 				318BA1E2270DAE830077A9FF /* PlayerPlane.swift */,
+				31A48D6A270F43A700536EDC /* PowerUp.swift */,
 				318BA1E0270DA3B90077A9FF /* Protocols.swift */,
 				318BA1DA270D8CDB0077A9FF /* Background.swift */,
 				318BA1CB270D89B30077A9FF /* GameViewController.swift */,
@@ -166,6 +169,7 @@
 				318BA1CC270D89B30077A9FF /* GameViewController.swift in Sources */,
 				318BA1C4270D89B30077A9FF /* AppDelegate.swift in Sources */,
 				318BA1DD270D936A0077A9FF /* Island.swift in Sources */,
+				31A48D6B270F43A700536EDC /* PowerUp.swift in Sources */,
 				318BA1DB270D8CDB0077A9FF /* Background.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
