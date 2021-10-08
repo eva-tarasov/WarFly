@@ -17,7 +17,7 @@ final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
   }
   
   // устанавливаем рэндомное имя изображения облака
-  fileprivate static func configureName() -> String {
+  private static func configureName() -> String {
     let distribution = GKRandomDistribution(lowestValue: 1,
                                             highestValue: 3)
     let randomNumber = distribution.nextInt()
@@ -26,7 +26,7 @@ final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
   }
   
   // устанавливаем рэндомное число для размера облака
-  fileprivate static var randomScaleFactor: CGFloat {
+  private static var randomScaleFactor: CGFloat {
     let distribution = GKRandomDistribution(lowestValue: 15,
                                             highestValue: 20)
     let randomNumber = CGFloat(distribution.nextInt()) / 10
@@ -35,7 +35,7 @@ final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
   }
   
   // Настройки движения объекта
-  fileprivate static func move(from point: CGPoint) -> SKAction {
+  private static func move(from point: CGPoint) -> SKAction {
     let movePoint = CGPoint(x: point.x, y: -200)
     let moveDistance = point.x + 200
     let movementSpeed: CGFloat = 40.0

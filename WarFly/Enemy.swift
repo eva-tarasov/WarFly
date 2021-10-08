@@ -7,8 +7,8 @@ enum EnemyDirection: Int {
 }
 
 class Enemy: SKSpriteNode {
-  let initialSize = CGSize(width: 221, height: 204)
-  var enemyTexture: SKTexture!
+  private let initialSize = CGSize(width: 221, height: 204)
+  private var enemyTexture: SKTexture!
   
   static var textureAtlas: SKTextureAtlas?
   

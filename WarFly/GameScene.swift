@@ -3,16 +3,15 @@ import GameplayKit
 
 class GameScene: SKScene {
   
-  var playerPlane: PlayerPlane!
-  var powerUp: PowerUp!
-  var enemy: Enemy!
+  private var playerPlane: PlayerPlane!
+  private var enemy: Enemy!
   
-  fileprivate func distanceCalculation(a: CGPoint, b: CGPoint) -> CGFloat {
+  private func distanceCalculation(a: CGPoint, b: CGPoint) -> CGFloat {
     return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y))
   }
   
   // Генерируем Облака
-  fileprivate func spawnCloud() {
+  private func spawnCloud() {
     let spawnCloudWait = SKAction.wait(forDuration: 1)
     let spawnCloudAction = SKAction.run { [unowned self] in
       let cloud = Cloud.createElement(at: nil)
@@ -25,7 +24,7 @@ class GameScene: SKScene {
   }
   
   // Генерируем острова
-  fileprivate func spawnIsland() {
+  private func spawnIsland() {
     let spawnIslandWait = SKAction.wait(forDuration: 2)
     let spawnIslandAction = SKAction.run { [unowned self] in
       let island = Island.createElement(at: nil)
@@ -37,7 +36,7 @@ class GameScene: SKScene {
     run(spawnIslandForever)
   }
   
-  fileprivate func configureStartScene() {
+  private func configureStartScene() {
     let screenCenterPoint = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
     let background = Background.populateBackground(at: screenCenterPoint)
     // что бы растянуть фон на все устройства
@@ -56,14 +55,28 @@ class GameScene: SKScene {
     self.addChild(playerPlane)
   }
   
-  fileprivate func spawnPowerUp() {
-    powerUp = PowerUp()
-    powerUp.performRotation()
-    powerUp.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-    self.addChild(powerUp)
+  private func spawnPowerUp() {
+    
+    let spawnAction = SKAction.run { [unowned self] in
+      let randomNumber = Int(arc4random_uniform(2))
+      let powerUp = randomNumber == 1 ? BluePowerUp() : GreenPowerUp()
+      let randomPositionX = arc4random_uniform(UInt32(self.size.width - 30))
+      
+      powerUp.position = CGPoint(x: CGFloat(randomPositionX), y: self.size.height + 100)
+      powerUp.startMovement()
+      
+      self.addChild(powerUp)
+    }
+    
+    let randomTimeSpawn = Double(arc4random_uniform(11) + 10)
+    let waitAction = SKAction.wait(forDuration: randomTimeSpawn)
+    let sequenceAction = SKAction.sequence([waitAction, spawnAction])
+    let repeatAction = SKAction.repeatForever(sequenceAction)
+    
+    self.run(repeatAction)
   }
   
-  fileprivate func generateSpiralOfEnemy() {
+  private func generateSpiralOfEnemy() {
     let enemyTextureAtlas1 = SKTextureAtlas(named: "Enemy_1")
     let enemyTextureAtlas2 = SKTextureAtlas(named: "Enemy_2")
     SKTextureAtlas.preloadTextureAtlases([enemyTextureAtlas1, enemyTextureAtlas2]) { [unowned self] in
@@ -91,7 +104,7 @@ class GameScene: SKScene {
     }
   }
   
-  fileprivate func spawnEnemies() {
+  private func spawnEnemies() {
     let waitAction = SKAction.wait(forDuration: 3.0)
     let genirateSpiralEnemy = SKAction.run { [unowned self] in
       self.generateSpiralOfEnemy()
@@ -134,8 +147,11 @@ class GameScene: SKScene {
     
     // Убираем ноды когда они исчезают с экрана по оси Y
     enumerateChildNodes(withName: "spriteForRemove") { node, stop in
-      if node.position.y < -100 {
+      if node.position.y <= -100 {
         node.removeFromParent()
+        if node.isKind(of: PowerUp.self) {
+          print("PowerUp is removed from scene")
+        }
       }
     }
   }

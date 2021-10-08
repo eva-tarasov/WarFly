@@ -6,13 +6,13 @@ enum TurnDirection {
 
 class PlayerPlane: SKSpriteNode {
   
-  var leftTextureArrayAnimation = [SKTexture]()
-  var rightTextureArrayAnimation = [SKTexture]()
-  var forwardTextureArrayAnimation = [SKTexture]()
-  var screen = UIScreen.main.bounds.size
-  var moveDirection: TurnDirection = .none
-  var stillTurning = false
-  let animationSpriteSerialNumber = [(13, 1, -1), (13, 26, 1), (13, 13, 1)]
+  private var leftTextureArrayAnimation = [SKTexture]()
+  private var rightTextureArrayAnimation = [SKTexture]()
+  private var forwardTextureArrayAnimation = [SKTexture]()
+  private var screen = UIScreen.main.bounds.size
+  private var moveDirection: TurnDirection = .none
+  private var stillTurning = false
+  private let animationSpriteSerialNumber = [(13, 1, -1), (13, 26, 1), (13, 13, 1)]
   
   static func createPlane(at point: CGPoint) -> PlayerPlane {
     
@@ -38,7 +38,7 @@ class PlayerPlane: SKSpriteNode {
     }
   }
   
-  fileprivate func preloadArray(
+  private func preloadArray(
     _stride: (Int, Int, Int),
     completion: @escaping (_ array: [SKTexture]) -> ()
   ) {
@@ -81,7 +81,7 @@ class PlayerPlane: SKSpriteNode {
     }
   }
   
-  fileprivate func turnPlane(direction: TurnDirection) {
+  private func turnPlane(direction: TurnDirection) {
     var array = [SKTexture]()
     
     switch direction {
