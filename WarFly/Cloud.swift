@@ -8,7 +8,7 @@ final class Cloud: SKSpriteNode, GameBackgroundSpriteable {
     let cloud = Cloud(imageNamed: cloudImageName)
     cloud.setScale(randomScaleFactor)
     cloud.position = point ?? randomPoint()
-    cloud.name = "backgroundSprite"
+    cloud.name = "spriteForRemove"
     cloud.anchorPoint = CGPoint(x: 0.5, y: 1) // смещение центра, что бы нод исчезал когда целиком пропадет с экрана
     cloud.zPosition = 10
     cloud.run(move(from: cloud.position))

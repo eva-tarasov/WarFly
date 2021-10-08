@@ -5,6 +5,7 @@ class GameScene: SKScene {
   
   var playerPlane: PlayerPlane!
   var powerUp: PowerUp!
+  var enemy: Enemy!
   
   fileprivate func distanceCalculation(a: CGPoint, b: CGPoint) -> CGFloat {
     return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y))
@@ -55,6 +56,51 @@ class GameScene: SKScene {
     self.addChild(playerPlane)
   }
   
+  fileprivate func spawnPowerUp() {
+    powerUp = PowerUp()
+    powerUp.performRotation()
+    powerUp.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+    self.addChild(powerUp)
+  }
+  
+  fileprivate func generateSpiralOfEnemy() {
+    let enemyTextureAtlas1 = SKTextureAtlas(named: "Enemy_1")
+    let enemyTextureAtlas2 = SKTextureAtlas(named: "Enemy_2")
+    SKTextureAtlas.preloadTextureAtlases([enemyTextureAtlas1, enemyTextureAtlas2]) { [unowned self] in
+      
+      let randomNumber = Int(arc4random_uniform(2))
+      let arrayOfAtlasses = [enemyTextureAtlas1, enemyTextureAtlas2]
+      let textureAtlases = arrayOfAtlasses[randomNumber]
+      
+      let waitAction = SKAction.wait(forDuration: 1)
+      let spawnEnemy = SKAction.run { [unowned self] in
+        let textureNames = textureAtlases.textureNames.sorted()
+        let texture = textureAtlases.textureNamed(textureNames[12]) // достаем имя текстуры, сначала обращаемся к массиву текстур (textureNamed), потом к конкретной текстуре (textureNames)
+        
+        self.enemy = Enemy(enemyTexture: texture)
+        self.enemy.position = CGPoint(
+          x: self.size.width / 2,
+          y: self.size.height + 110
+        )
+        self.enemy.flySpiral()
+        self.addChild(self.enemy)
+      }
+      let sequenceAction = SKAction.sequence([waitAction, spawnEnemy])
+      let repeatAction = SKAction.repeat(sequenceAction, count: 3)
+      self.run(repeatAction)
+    }
+  }
+  
+  fileprivate func spawnEnemies() {
+    let waitAction = SKAction.wait(forDuration: 3.0)
+    let genirateSpiralEnemy = SKAction.run { [unowned self] in
+      self.generateSpiralOfEnemy()
+    }
+    let sequenceAction = SKAction.sequence([waitAction, genirateSpiralEnemy])
+    let repeatAction = SKAction.repeatForever(sequenceAction)
+    self.run(repeatAction)
+  }
+  
   override func didMove(to view: SKView) {
     
     configureStartScene()
@@ -62,10 +108,9 @@ class GameScene: SKScene {
     spawnIsland()
     spawnCloud()
     
-    powerUp = PowerUp()
-    powerUp.performRotation()
-    powerUp.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
-    self.addChild(powerUp)
+    spawnPowerUp()
+    
+    spawnEnemies()
     
   }
   
@@ -88,7 +133,7 @@ class GameScene: SKScene {
   override func didSimulatePhysics() {
     
     // Убираем ноды когда они исчезают с экрана по оси Y
-    enumerateChildNodes(withName: "backgroundSprite") { node, stop in
+    enumerateChildNodes(withName: "spriteForRemove") { node, stop in
       if node.position.y < -100 {
         node.removeFromParent()
       }

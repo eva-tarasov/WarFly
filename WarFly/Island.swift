@@ -8,7 +8,7 @@ final class Island: SKSpriteNode, GameBackgroundSpriteable {
     let island = Island(imageNamed: islandImageName)
     island.setScale(randomScaleFactor)
     island.position = point ?? randomPoint()
-    island.name = "backgroundSprite"
+    island.name = "spriteForRemove"
     island.anchorPoint = CGPoint(x: 0.5, y: 1) // смещение центра, что бы нод исчезал когда целиком пропадет с экрана
     island.zPosition = 2
     island.run(rotateForRandomAngle())
