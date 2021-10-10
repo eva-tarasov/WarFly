@@ -184,22 +184,28 @@ class GameScene: SKScene {
 extension GameScene: SKPhysicsContactDelegate {
   func didBegin(_ contact: SKPhysicsContact) {
     
-    let bodyA = contact.bodyA.categoryBitMask
-    let bodyB = contact.bodyB.categoryBitMask
-    let player = BitMaskCategory.player
-    let enemy = BitMaskCategory.enemy
-    let shot = BitMaskCategory.shot
-    let powerUp = BitMaskCategory.powerUp
-    
-    if bodyA == player && bodyB == enemy || bodyB == player && bodyA == enemy {
-      print("enemy vs player")
-    } else if bodyA == player && bodyB == powerUp || bodyB == player && bodyA == powerUp {
-      print("player vs powerup")
-    } else if bodyA == shot && bodyB == enemy || bodyB == shot && bodyA == enemy {
-      print("shot vs enemy")
-    } else {
-      print("------------------other collision ")
+    let contactCategory: BitMaskCategory = [contact.bodyA.category, contact.bodyB.category]
+    switch contactCategory {
+    case [.enemy, .player]: print("enemy vs player")
+    case [.player, .powerUp]: print("player vs powerUp")
+    case [.shot, .enemy]: print("enemy vs shot")
+    default: preconditionFailure("Unable to detect collision category")
     }
+    
+//    let bodyA = contact.bodyA.categoryBitMask
+//    let bodyB = contact.bodyB.categoryBitMask
+//    let player = BitMaskCategory.player
+//    let enemy = BitMaskCategory.enemy
+//    let shot = BitMaskCategory.shot
+//    let powerUp = BitMaskCategory.powerUp
+//
+//    if bodyA == player && bodyB == enemy || bodyB == player && bodyA == enemy {
+//      print("enemy vs player")
+//    } else if bodyA == player && bodyB == powerUp || bodyB == player && bodyA == powerUp {
+//      print("player vs powerup")
+//    } else if bodyA == shot && bodyB == enemy || bodyB == shot && bodyA == enemy {
+//      print("shot vs enemy")
+//    }
   }
   
   func didEnd(_ contact: SKPhysicsContact) {
