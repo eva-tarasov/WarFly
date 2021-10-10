@@ -114,6 +114,13 @@ class GameScene: SKScene {
     self.run(repeatAction)
   }
   
+  private func playerFire() {
+    let shot = YellowShot()
+    shot.position = self.playerPlane.position
+    shot.startMovement()
+    self.addChild(shot)
+  }
+  
   override func didMove(to view: SKView) {
     
     configureStartScene()
@@ -125,6 +132,10 @@ class GameScene: SKScene {
     
     spawnEnemies()
     
+  }
+  
+  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    playerFire()
   }
   
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -149,11 +160,19 @@ class GameScene: SKScene {
     enumerateChildNodes(withName: "spriteForRemove") { node, stop in
       if node.position.y <= -100 {
         node.removeFromParent()
-        if node.isKind(of: PowerUp.self) {
-          print("PowerUp is removed from scene")
-        }
+//        if node.isKind(of: PowerUp.self) {
+//          print("PowerUp is removed from scene")
+//        }
       }
     }
+    
+    enumerateChildNodes(withName: "spriteForShot") { [weak self] node, _ in
+      guard let self = self else { return }
+      if node.position.y >= self.size.height + 100 {
+        node.removeFromParent()
+      }
+    }
+    
   }
   
 }
