@@ -19,6 +19,12 @@ class Enemy: SKSpriteNode {
     self.yScale = -0.5
     self.zPosition = 19
     self.name = "spriteForRemove"
+    
+    self.physicsBody = SKPhysicsBody(texture: texture, alphaThreshold: 0.5, size: self.size)
+    self.physicsBody?.isDynamic = true
+    self.physicsBody?.categoryBitMask = BitMaskCategory.enemy
+    self.physicsBody?.collisionBitMask = BitMaskCategory.player | BitMaskCategory.shot
+    self.physicsBody?.contactTestBitMask = BitMaskCategory.player | BitMaskCategory.shot
   }
   
   required init?(coder aDecoder: NSCoder) {

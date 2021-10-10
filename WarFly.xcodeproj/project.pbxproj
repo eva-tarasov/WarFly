@@ -24,6 +24,7 @@
 		3191B5EE2712E1D8008098FC /* YellowShot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191B5ED2712E1D8008098FC /* YellowShot.swift */; };
 		3191B5F12712E6E3008098FC /* Assets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191B5F02712E6E3008098FC /* Assets.swift */; };
 		3191B5F32712ED4C008098FC /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191B5F22712ED4C008098FC /* MenuScene.swift */; };
+		3191B5F52713236B008098FC /* BitMaskCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3191B5F42713236B008098FC /* BitMaskCategory.swift */; };
 		31A48D69270F42CB00536EDC /* GreenPowerUp.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */; };
 		31A48D6B270F43A700536EDC /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31A48D6A270F43A700536EDC /* PowerUp.swift */; };
 		31A48D6D270F5C7600536EDC /* Enemy_1.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 31A48D6C270F5C7600536EDC /* Enemy_1.atlas */; };
@@ -53,6 +54,7 @@
 		3191B5ED2712E1D8008098FC /* YellowShot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YellowShot.swift; sourceTree = "<group>"; };
 		3191B5F02712E6E3008098FC /* Assets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assets.swift; sourceTree = "<group>"; };
 		3191B5F22712ED4C008098FC /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		3191B5F42713236B008098FC /* BitMaskCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BitMaskCategory.swift; sourceTree = "<group>"; };
 		31A48D68270F42CB00536EDC /* GreenPowerUp.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = GreenPowerUp.atlas; sourceTree = "<group>"; };
 		31A48D6A270F43A700536EDC /* PowerUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
 		31A48D6C270F5C7600536EDC /* Enemy_1.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Enemy_1.atlas; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				3191B5F22712ED4C008098FC /* MenuScene.swift */,
 				3191B5F02712E6E3008098FC /* Assets.swift */,
 				318BA1C9270D89B30077A9FF /* GameScene.swift */,
+				3191B5F42713236B008098FC /* BitMaskCategory.swift */,
 				3191B5EF2712E23F008098FC /* Shots */,
 				318BA1DC270D936A0077A9FF /* Island.swift */,
 				318BA1DE270DA1C10077A9FF /* Cloud.swift */,
@@ -236,6 +239,7 @@
 				318BA1DD270D936A0077A9FF /* Island.swift in Sources */,
 				31A48D6B270F43A700536EDC /* PowerUp.swift in Sources */,
 				31D557AA271077BD00709D8E /* BluePowerUp.swift in Sources */,
+				3191B5F52713236B008098FC /* BitMaskCategory.swift in Sources */,
 				3191B5F32712ED4C008098FC /* MenuScene.swift in Sources */,
 				3191B5EC2712DD0A008098FC /* Shot.swift in Sources */,
 				318BA1DB270D8CDB0077A9FF /* Background.swift in Sources */,
