@@ -14,7 +14,7 @@ class Shot: SKSpriteNode {
     let texture = textureAtlas.textureNamed(textureName)
     textureNameBegin = String(textureName.dropLast(6))
     super.init(texture: texture, color: .clear, size: initialSize)
-    self.setScale(0.5)
+    self.setScale(0.3)
     self.name = "spriteForShot"
     self.zPosition = 30
   }
