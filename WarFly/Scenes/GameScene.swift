@@ -1,11 +1,15 @@
 import SpriteKit
 import GameplayKit
-import UIKit
 
 class GameScene: SKScene {
   
   private var playerPlane: PlayerPlane!
   private var enemy: Enemy!
+  
+  private var oneTapGuesture = UITapGestureRecognizer()
+  
+  private let hud = HUD()
+  private let screenSize = UIScreen.main.bounds.size
   
   private func distanceCalculation(a: CGPoint, b: CGPoint) -> CGFloat {
     return sqrt((b.x - a.x) * (b.x - a.x) + (b.y - a.y) * (b.y - a.y))
@@ -115,16 +119,28 @@ class GameScene: SKScene {
     self.run(repeatAction)
   }
   
-  private func playerFire() {
+  private func setUpGestureHandlers() {
+    
+    oneTapGuesture.addTarget(self, action: #selector(oneTap(_:)))
+    view?.addGestureRecognizer(oneTapGuesture)
+  }
+  
+  @objc private func oneTap(_ gestureRecognizer: UITapGestureRecognizer) {
     let shot = YellowShot()
     shot.position = self.playerPlane.position
     shot.startMovement()
     self.addChild(shot)
   }
   
+  private func createHUD() {
+    hud.configureUI(screenSize: screenSize)
+    addChild(hud)
+  }
+  
   override func didMove(to view: SKView) {
     
     configureStartScene()
+    createHUD()
     playerPlane.preloadTextureArrays()
     spawnIsland()
     spawnCloud()
@@ -133,27 +149,24 @@ class GameScene: SKScene {
     
     spawnEnemies()
     
+    setUpGestureHandlers()
+    
     physicsWorld.contactDelegate = self
     physicsWorld.gravity = CGVector.zero
   }
   
-  override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-    // TODO: сделать выстрел по двойному тапу
-    playerFire()
-  }
-  
   override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    
+
     if let touch = touches.first {
-      
+
       let touchLocation = touch.location(in: self)
       let distance = distanceCalculation(a: playerPlane.position, b: touchLocation)
       let speed: CGFloat = 500
       let timeToDistance = TimeInterval(distance / speed)
-      
+
       let moveAction = SKAction.move(to: CGPoint(x: touchLocation.x, y: 100), duration: timeToDistance)
       playerPlane.run(moveAction)
-      
+
       playerPlane.movementDirectionCheck(at: touchLocation.x)
     }
   }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		311227B6271F137A006AE928 /* HUD.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311227B5271F137A006AE928 /* HUD.swift */; };
 		318BA1C4270D89B30077A9FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1C3270D89B30077A9FF /* AppDelegate.swift */; };
 		318BA1CA270D89B30077A9FF /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1C9270D89B30077A9FF /* GameScene.swift */; };
 		318BA1CC270D89B30077A9FF /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 318BA1CB270D89B30077A9FF /* GameViewController.swift */; };
@@ -37,6 +38,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		311227B5271F137A006AE928 /* HUD.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HUD.swift; sourceTree = "<group>"; };
 		318BA1C0270D89B30077A9FF /* WarFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WarFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		318BA1C3270D89B30077A9FF /* AppDelegate.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; tabWidth = 2; };
 		318BA1C9270D89B30077A9FF /* GameScene.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; tabWidth = 2; };
@@ -78,6 +80,48 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		311227B7271F1582006AE928 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				3191B5F22712ED4C008098FC /* MenuScene.swift */,
+				318BA1C9270D89B30077A9FF /* GameScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		311227B8271F15A8006AE928 /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				318BA1C3270D89B30077A9FF /* AppDelegate.swift */,
+				318BA1CD270D89B30077A9FF /* Main.storyboard */,
+				318BA1D2270D89BC0077A9FF /* LaunchScreen.storyboard */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		311227B9271F15E2006AE928 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				318BA1DC270D936A0077A9FF /* Island.swift */,
+				318BA1DE270DA1C10077A9FF /* Cloud.swift */,
+				318BA1E2270DAE830077A9FF /* PlayerPlane.swift */,
+				31A48D6E270F5CE900536EDC /* Enemy.swift */,
+				318BA1DA270D8CDB0077A9FF /* Background.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		311227BA271F1600006AE928 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				3191B5F02712E6E3008098FC /* Assets.swift */,
+				311227B5271F137A006AE928 /* HUD.swift */,
+				3191B5F42713236B008098FC /* BitMaskCategory.swift */,
+				318BA1E0270DA3B90077A9FF /* Protocols.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
 		318BA1B7270D89B30077A9FF = {
 			isa = PBXGroup;
 			children = (
@@ -99,23 +143,14 @@
 			children = (
 				3191B5F8271354A4008098FC /* Particals */,
 				3191B5EA2712DCB1008098FC /* Atlases */,
-				318BA1C3270D89B30077A9FF /* AppDelegate.swift */,
-				3191B5F22712ED4C008098FC /* MenuScene.swift */,
-				3191B5F02712E6E3008098FC /* Assets.swift */,
-				318BA1C9270D89B30077A9FF /* GameScene.swift */,
-				3191B5F42713236B008098FC /* BitMaskCategory.swift */,
+				311227B8271F15A8006AE928 /* Supporting files */,
+				311227B7271F1582006AE928 /* Scenes */,
+				311227BA271F1600006AE928 /* Managers */,
 				3191B5EF2712E23F008098FC /* Shots */,
-				318BA1DC270D936A0077A9FF /* Island.swift */,
-				318BA1DE270DA1C10077A9FF /* Cloud.swift */,
-				318BA1E2270DAE830077A9FF /* PlayerPlane.swift */,
+				311227B9271F15E2006AE928 /* Classes */,
 				31D557A6271076FA00709D8E /* PowerUp */,
-				31A48D6E270F5CE900536EDC /* Enemy.swift */,
-				318BA1E0270DA3B90077A9FF /* Protocols.swift */,
-				318BA1DA270D8CDB0077A9FF /* Background.swift */,
 				318BA1CB270D89B30077A9FF /* GameViewController.swift */,
-				318BA1CD270D89B30077A9FF /* Main.storyboard */,
 				318BA1D0270D89BC0077A9FF /* Assets.xcassets */,
-				318BA1D2270D89BC0077A9FF /* LaunchScreen.storyboard */,
 			);
 			path = WarFly;
 			sourceTree = "<group>";
@@ -253,6 +288,7 @@
 				31D557AA271077BD00709D8E /* BluePowerUp.swift in Sources */,
 				3191B5F52713236B008098FC /* BitMaskCategory.swift in Sources */,
 				3191B5F32712ED4C008098FC /* MenuScene.swift in Sources */,
+				311227B6271F137A006AE928 /* HUD.swift in Sources */,
 				3191B5EC2712DD0A008098FC /* Shot.swift in Sources */,
 				318BA1DB270D8CDB0077A9FF /* Background.swift in Sources */,
 			);
